@@ -1,0 +1,46 @@
+.main-cover {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+}
+
+.bg-cover {
+  background-image: url("../img/aave-bg.jpg");
+  width: 100%;
+  height: 100vh;
+  background-size: auto 1080px;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn-flashloan {
+  margin-top: 10%;
+  background-color: #40b1b4;
+  padding: 9px 22px;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.btn-flashloan:hover {
+  background: rgb(255, 1, 79);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 1, 79, 1) 0%,
+    rgba(78, 170, 15, 1) 0%,
+    rgba(211, 63, 121, 1) 0%,
+    rgba(215, 39, 65, 1) 0%,
+    rgba(205, 118, 151, 1) 0%,
+    rgba(99, 224, 227, 1) 82%
+  );
+  border: 1px solid #40b1b4;
+}
+.btn-flashloan:hover p {
+  color: #fff;
+}
+.btn-flashloan > p {
+  margin: 0px;
+  font-weight: bold;
+  color: gray;
+}

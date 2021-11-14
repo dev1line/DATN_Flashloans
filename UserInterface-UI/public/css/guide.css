@@ -1,0 +1,50 @@
+.grid-column {
+  display: flex;
+}
+.column > img {
+  width: 300px;
+  height: auto;
+}
+.box-container > h3 {
+  text-align: center;
+  padding: 100px 17% 50px;
+  font-size: 28px;
+  color: #261999;
+}
+.column {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin: 0px 22px;
+}
+.dot-line {
+  position: relative;
+  color: red;
+}
+.dot-line::after {
+  left: 0;
+  width: 100%;
+  bottom: 1px;
+  content: "";
+  position: absolute;
+  border-bottom: 2px dashed red;
+}
+.box-text {
+  margin-left: 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.vid > img {
+  width: 404px;
+}
+.grid-row > h4 {
+  padding: 100px 0px 50px;
+  text-align: center;
+  font-size: 28px;
+  color: #261999;
+}
+.box-scroll {
+  display: flex;
+}

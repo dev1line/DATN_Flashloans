@@ -6,7 +6,7 @@ import Account from "../components/accounts";
 import Banner from "../components/Homepage/Banner/index.js";
 import Guide from "../components/Homepage/Guide/index.js";
 import Chart from "../components/Flashloans/Chart";
-import ChartView from "../components/Homepage/ChartView/index.js";
+import StockView from "../components/Homepage/StockView/index.js";
 
 const SwitchButton = (props) => {
   const [isLive, setIsLive] = useState(false);
@@ -28,7 +28,7 @@ const SwitchButton = (props) => {
           Live
         </button>
       </div>
-      <div>{isLive ? <Chart /> : <ChartView />}</div>
+      <div>{isLive ? <Chart /> : <StockView />}</div>
     </div>
   );
 };

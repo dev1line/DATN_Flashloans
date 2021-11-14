@@ -5,7 +5,6 @@ import io from "socket.io-client";
 import { useState, useEffect } from "react";
 function MyApp({ Component, pageProps }) {
   const [socket, setSocket] = useState(null);
-
   useEffect(() => {
     const socketValue = io();
     setSocket(socketValue);

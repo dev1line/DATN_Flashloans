@@ -8,6 +8,7 @@ const port = parseInt(process.env.PORT, 10) || 3000;
 const dev = process.env.NODE_ENV !== "production";
 const nextApp = next({ dev });
 const nextHandler = nextApp.getRequestHandler();
+const rp = require("request-promise");
 
 const bRest = new api.BinanceRest({
   key: "", // Get this from your account on binance.com
@@ -19,16 +20,25 @@ const bRest = new api.BinanceRest({
 });
 const binanceWS = new api.BinanceWS(true);
 
+const requestOptions = {
+  method: "GET",
+  uri: "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest",
+  qs: {
+    start: "1",
+    limit: "5000",
+    convert: "USD",
+  },
+  headers: {
+    "X-CMC_PRO_API_KEY": "6667809f-3e20-4025-8328-2c4fd8441035",
+  },
+  json: true,
+  gzip: true,
+};
+
 // fake DB
-// const messages = {
-//   chat1: [],
-//   chat2: [],
-// };
+
 io.on("connection", (socket) => {
   const bws = binanceWS.onKline("BTCUSDT", "1m", (data) => {
-    // console.log("data server:", data);
-
-    // socket.on("KLINE", (value) => {
     socket.broadcast.emit("KLINE", {
       time: Math.round(data.kline.startTime / 1000),
       open: parseFloat(data.kline.open),
@@ -36,8 +46,18 @@ io.on("connection", (socket) => {
       low: parseFloat(data.kline.low),
       close: parseFloat(data.kline.close),
     });
-    // });
   });
+
+  rp(requestOptions)
+    .then((response) => {
+      // console.log("API call response:", response);
+      socket.broadcast.emit("COINMARKETCAP", {
+        response,
+      });
+    })
+    .catch((err) => {
+      console.log("API call error:", err.message);
+    });
 });
 // socket.io server
 

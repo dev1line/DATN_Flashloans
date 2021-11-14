@@ -1,10 +1,11 @@
-import Banner from "../../components/Homepage/Banner";
+import BannerCloudText from "../../components/PriceChart/BannerCloudText";
 
-const Instruction = (props) => {
+const IndexInstruction = (props) => {
   return (
     <div>
-      <Banner />
+      <BannerCloudText />
     </div>
   );
 };
-export default Instruction;
+
+export default IndexInstruction;

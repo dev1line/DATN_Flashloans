@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Head from "next/head";
 import fetch from "isomorphic-unfetch";
 import useSocket from "../../../hooks/useSocket.js";
+// import { createChart } from 'lightweight-charts';
 const Chart = (props) => {
   let [candleSeries, setCadleSeries] = useState(null);
   useEffect(() => {
@@ -38,12 +39,21 @@ const Chart = (props) => {
   useSocket("KLINE", (data) => {
     candleSeries.update(data);
   });
+  // const cmkc = useSocket("COINMARKETCAP", (data) => {
+  //   candleSeries.update(data);
+  // });
+  // console.log("Coinmarketcapp:", cmkc);
 
   return (
     <div>
       <Head>
         <link key="css/chart.css" rel="stylesheet" href="css/chart.css" />
       </Head>
+      <h2>BTCUSDT in Real-time</h2>
+      <p>
+        Stay tuned for more cryptocurrencies to make an informed decision !
+        <span> See more </span>
+      </p>
       <div id="tvchart"></div>
     </div>
   );

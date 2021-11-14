@@ -192,7 +192,7 @@ const Header = (props) => {
         )}
       >
         <a className="navbar-brand no-default-spacing" href="/">
-          <img src="img/logo1.jpg" className="img-navbar-brand" />
+          <img src="/img/logo1.jpg" className="img-navbar-brand" />
         </a>
         <div className="collapse navbar-collapse navbar-menu" id="navbarNav">
           <ul className="navbar-nav">
@@ -268,7 +268,7 @@ const Header = (props) => {
               <div className="po-box-logo-container">
                 <div className="po-box-logo">
                   <a className="po-logo" href="/">
-                    <img alt="LOGO" src="img/logo1.jpg" />
+                    <img alt="LOGO" src="/img/logo1.jpg" />
                   </a>
                   <img
                     className="po-close-button toggle-open-popcover-button"

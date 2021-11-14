@@ -7,14 +7,20 @@ export default function Custom404() {
         <link
           key="css/404.module.css"
           rel="stylesheet"
-          href="css/404.module.css"
+          href="/css/404.module.css"
+        />
+        <link key="css/common.css" rel="stylesheet" href="/css/common.css" />
+        <link
+          key="css/header.module.css"
+          rel="stylesheet"
+          href="/css/header.module.css"
         />
       </Head>
       <h1 contenteditable>
         4<div className="shine-3"></div>
         <div className="shine-4"></div>
       </h1>
-      <h1 style={{ left: "71.2%" }} contenteditable>
+      <h1 style={{ left: "71.2%" }}>
         4<div className="shine-3"></div>
         <div className="shine-4"></div>
       </h1>

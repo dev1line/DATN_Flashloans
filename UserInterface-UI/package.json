@@ -3,12 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "lint": "next lint",
+    "dev": "node server.js",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "start": "NODE_ENV=production node server.js"
   },
   "dependencies": {
+    "binance": "github:karthik947/binance#master",
     "clsx": "^1.1.1",
     "dayjs": "^1.10.7",
     "next": "11.1.2",
@@ -17,8 +18,12 @@
     "react-lazy-load-image-component": "^1.5.1",
     "react-slick": "^0.28.1",
     "react-toggle-dark-mode": "^1.0.4",
+    "socket.io": "^2.4.1",
+    "socket.io-client": "^2.4.0",
     "use-dark-mode": "^2.3.1",
-    "web3": "^1.5.3"
+    "web3": "^1.5.3",
+    "express": "^4.15.2",
+    "isomorphic-unfetch": "^3.0.0"
   },
   "devDependencies": {
     "eslint": "7.32.0",

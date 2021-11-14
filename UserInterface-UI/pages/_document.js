@@ -102,6 +102,21 @@ class MyDocument extends Document {
             href="https://fonts.googleapis.com/css?family=Montserrat&amp;display=swap"
             rel="stylesheet"
           />
+
+          <script
+            type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"
+          ></script>
+          <script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+
+          <script
+            type="text/javascript"
+            src="https://s3.tradingview.com/tv.js"
+          ></script>
+
+          <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+          <script src="https://cdn.amcharts.com/lib/5/wc.js"></script>
+          <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
         </Head>
         <body>
           <div id="wrapper">

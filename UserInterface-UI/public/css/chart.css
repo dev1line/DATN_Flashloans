@@ -1,0 +1,12 @@
+#tvchart > div {
+  width: 100% !important;
+  height: auto;
+}
+#tvchart > div > table {
+  width: 100% !important;
+  height: auto;
+}
+#tvchart > div > table > tr:first-child > td:nth-child(2) > canvas {
+  width: 100%;
+  height: auto;
+}

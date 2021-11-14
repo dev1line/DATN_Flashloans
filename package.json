@@ -1,5 +1,5 @@
 {
-  "name": "tmpltruflenext",
+  "name": "FlashLoan",
   "version": "1.0.0",
   "description": "",
   "main": "truffle-config.js",
@@ -10,7 +10,7 @@
     "start": "truffle develop && truffle compile && truffle migrate --reset && cd client && npm run start",
     "testnet": "truffle console --network testnet && compile && migrate --reset"
   },
-  "author": "",
+  "author": "NguyenTuanQuangSang",
   "license": "ISC",
   "dependencies": {
     "@openzeppelin/contracts": "^4.3.2",

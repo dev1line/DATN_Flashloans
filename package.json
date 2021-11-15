@@ -6,6 +6,9 @@
   "directories": {
     "test": "test"
   },
+  "engines": {
+    "node": "10.0.0"
+  },
   "scripts": {
     "start": "truffle develop && truffle compile && truffle migrate --reset && cd client && npm run start",
     "testnet": "truffle console --network testnet && compile && migrate --reset",

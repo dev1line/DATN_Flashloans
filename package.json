@@ -10,7 +10,7 @@
     "node": "10.0.0"
   },
   "scripts": {
-    "start": "truffle develop && truffle compile && truffle migrate --reset && cd client && npm run start",
+    "start": "truffle migrate --network testnet & concurrently --kill-others \"npm run fe\" \"npm run be\"",
     "testnet": "truffle console --network testnet && compile && migrate --reset",
     "dev:ui": "( cd UserInterface-UI && npm run dev ) & ( cd KeystoneJS && npm run dev ) ",
     "dev:fe": "cd UserInterface-UI && npm run dev",
@@ -29,8 +29,5 @@
     "concurrently": "^6.4.0",
     "dotenv": "^10.0.0",
     "request-promise": "^4.2.6"
-  },
-  "devDependencies": {
-    "truffle-solc-select": "^0.1.6"
   }
 }

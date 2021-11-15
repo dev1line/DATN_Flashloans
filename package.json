@@ -15,16 +15,15 @@
     "dev:ui":"( cd UserInterface-UI && npm run dev ) & ( cd KeystoneJS && npm run dev ) ",
     "dev:fe":"cd UserInterface-UI && npm run dev",
     "dev:api":"cd KeystoneJS && npm run dev",
-    "all": "npm run dev:fe & npm run dev:api"
+    "all": "npm run dev:fe & npm run dev:api",
+    "build":"truffle migrate --network testnet & npm run all"
   },
   "author": "NguyenTuanQuangSang",
   "license": "ISC",
   "dependencies": {
     "@openzeppelin/contracts": "^4.3.2",
     "@truffle/hdwallet-provider": "^1.4.1",
-    "dotenv": "^10.0.0",
-    "lightweight-charts": "^3.7.0",
-    "request-promise": "^4.2.6"
+    "dotenv": "^10.0.0"
   },
   "devDependencies": {
     "truffle-solc-select": "^0.1.6"

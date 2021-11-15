@@ -101,7 +101,7 @@ const Footer = (props) => {
                       className={clsx(styles.imgNapa)}
                     />
                     <div className={clsx(styles.socialsIconDeskTop)}>
-                      <a href="/">
+                      <a href="#">
                         <svg
                           width="40px"
                           color="white"
@@ -120,7 +120,7 @@ const Footer = (props) => {
                           ></path>
                         </svg>
                       </a>
-                      <a href="/">
+                      <a href="#">
                         <svg
                           width="40px"
                           color="white"
@@ -139,7 +139,7 @@ const Footer = (props) => {
                           ></path>
                         </svg>
                       </a>
-                      <a href="/">
+                      <a href="#">
                         <svg
                           width="40px"
                           color="white"
@@ -232,7 +232,7 @@ const Footer = (props) => {
                     </div>
                   ))}
                   <div className={clsx(styles.socialsIcon)}>
-                    <a href="/">
+                    <a href="#">
                       <svg
                         width="40px"
                         color="white"
@@ -251,7 +251,7 @@ const Footer = (props) => {
                         ></path>
                       </svg>
                     </a>
-                    <a href="/">
+                    <a href="#">
                       <svg
                         width="40px"
                         color="white"
@@ -270,7 +270,7 @@ const Footer = (props) => {
                         ></path>
                       </svg>
                     </a>
-                    <a href="/">
+                    <a href="#">
                       <svg
                         width="40px"
                         color="white"

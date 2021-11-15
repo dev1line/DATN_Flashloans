@@ -9,11 +9,13 @@ const Banner = (props) => {
       </Head>
 
       <div className="main-cover">
-        <div className="bg-cover">
-          <div className="btn-flashloan">
-            <p>Flashloans Now</p>
-          </div>
-        </div>
+        <div
+          className="bg-cover"
+          style={{
+            backgroundImage: "none",
+            backgroundColor: "grey",
+          }}
+        ></div>
       </div>
     </div>
   );

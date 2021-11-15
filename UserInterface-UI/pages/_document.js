@@ -26,9 +26,7 @@ class MyDocument extends Document {
             name="viewport"
             content="width=device-width, initial-scale=1"
           ></meta>
-
           <title>Flashloans</title>
-
           {/* bootrap cdn */}
           <link
             rel="stylesheet"
@@ -49,7 +47,6 @@ class MyDocument extends Document {
             integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
             crossorigin="anonymous"
           ></script>
-
           <script
             src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
             integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
@@ -74,14 +71,12 @@ class MyDocument extends Document {
             media="all"
           />
           <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
-
           <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
           <script src="https://cdn.amcharts.com/lib/4/maps.js"></script>
           <script src="https://cdn.amcharts.com/lib/4/geodata/worldLow.js"></script>
           <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
           <script src="https://www.amcharts.com/lib/4/geodata/continentsLow.js"></script>
           <script src="https://www.amcharts.com/lib/4/plugins/bullets.js"></script>
-
           {/* gsap */}
           <script
             type="text/javascript"
@@ -102,6 +97,27 @@ class MyDocument extends Document {
             href="https://fonts.googleapis.com/css?family=Montserrat&amp;display=swap"
             rel="stylesheet"
           />
+          <script
+            type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"
+          ></script>
+          <script src="https://unpkg.com/lightweight-charts@3.7.0/dist/lightweight-charts.standalone.production.js"></script>
+          <script
+            type="text/javascript"
+            src="https://s3.tradingview.com/tv.js"
+          ></script>
+          <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+          <script src="https://cdn.amcharts.com/lib/5/wc.js"></script>
+          <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+
+          <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap"
+            rel="stylesheet"
+          />
+          <link
+            rel="stylesheet"
+            href="https://unicons.iconscout.com/release/v2.1.9/css/unicons.css"
+          ></link>
         </Head>
         <body>
           <div id="wrapper">

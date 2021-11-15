@@ -4,14 +4,8 @@ const HDWalletProvider = require("@truffle/hdwallet-provider");
 const path = require("path");
 
 module.exports = {
-  contracts_build_directory: path.join(__dirname, "client/contracts"),
+  contracts_build_directory: path.join(__dirname, "UserInterface-UI/contracts"),
   networks: {
-    // Useful for testing. The `development` name is special - truffle uses it by default
-    // if it's defined here and no other network is specified at the command line.
-    // You should run a client (like ganache-cli, geth or parity) in a separate terminal
-    // tab if you use this network and you must also set the `host`, `port` and `network_id`
-    // options below to some value.
-    //
     // development: {
     //   host: "127.0.0.1", // Localhost (default: none)
     //   port: 8545, // Standard Ethereum port (default: none)
@@ -26,8 +20,6 @@ module.exports = {
     // from: <address>,        // Account to send txs from (default: accounts[0])
     // websocket: true        // Enable EventEmitter interface for web3 (default: false)
     // },
-    // Useful for deploying to a public network.
-    // NB: It's important to wrap the provider as a function.
     testnet: {
       provider: () =>
         new HDWalletProvider(
@@ -72,12 +64,9 @@ module.exports = {
     // production: true    // Treats this network as if it was a public net. (default: false)
     // }
   },
-
-  // Set default mocha options here, use special reporters etc.
   mocha: {
     // timeout: 100000
   },
-
   // Configure your compilers
   compilers: {
     solc: {
@@ -95,7 +84,6 @@ module.exports = {
   },
 
   // Truffle DB is currently disabled by default; to enable it, change enabled: false to enabled: true
-  //
   // Note: if you migrated your contracts prior to enabling this field in your Truffle project and want
   // those previously migrated contracts available in the .db directory, you will need to run the following:
   // $ truffle migrate --reset --compile-all

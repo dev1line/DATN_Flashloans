@@ -1,6 +1,6 @@
 import BannerCloudText from "../../components/PriceChart/BannerCloudText";
 
-const IndexInstruction = (props) => {
+const News = (props) => {
   return (
     <div>
       <BannerCloudText />
@@ -8,4 +8,4 @@ const IndexInstruction = (props) => {
   );
 };
 
-export default IndexInstruction;
+export default News;

@@ -1,0 +1,8 @@
+#chartdiv {
+  width: auto;
+  height: 100vh;
+}
+
+#chartdiv > div > div > div > canvas:last-child {
+  display: none;
+}

@@ -420,7 +420,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.3",
-  "updatedAt": "2021-11-15T00:33:38.158Z",
+  "updatedAt": "2021-11-15T08:56:59.397Z",
   "devdoc": {
     "author": "Multiplier Finance",
     "details": "implement this interface to develop a flashloan-compatible flashLoanReceiver contract*",

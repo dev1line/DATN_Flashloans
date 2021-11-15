@@ -9,9 +9,13 @@
     "start": " node server.js NODE_ENV=production"
   },
   "dependencies": {
+    "@apollo/client": "^3.4.17",
     "binance": "github:karthik947/binance#master",
     "clsx": "^1.1.1",
     "dayjs": "^1.10.7",
+    "express": "^4.15.2",
+    "graphql": "^15.5.1",
+    "isomorphic-unfetch": "^3.0.0",
     "next": "11.1.2",
     "react": "17.0.2",
     "react-dom": "17.0.2",
@@ -21,9 +25,7 @@
     "socket.io": "^2.4.1",
     "socket.io-client": "^2.4.0",
     "use-dark-mode": "^2.3.1",
-    "web3": "^1.5.3",
-    "express": "^4.15.2",
-    "isomorphic-unfetch": "^3.0.0"
+    "web3": "^1.5.3"
   },
   "devDependencies": {
     "eslint": "7.32.0",

@@ -12,18 +12,23 @@
   "scripts": {
     "start": "truffle develop && truffle compile && truffle migrate --reset && cd client && npm run start",
     "testnet": "truffle console --network testnet && compile && migrate --reset",
-    "dev:ui":"( cd UserInterface-UI && npm run dev ) & ( cd KeystoneJS && npm run dev ) ",
-    "dev:fe":"cd UserInterface-UI && npm run dev",
-    "dev:api":"cd KeystoneJS && npm run dev",
+    "dev:ui": "( cd UserInterface-UI && npm run dev ) & ( cd KeystoneJS && npm run dev ) ",
+    "dev:fe": "cd UserInterface-UI && npm run dev",
+    "dev:api": "cd KeystoneJS && npm run dev",
     "all": "npm run dev:fe & npm run dev:api",
-    "build":"truffle migrate --network testnet & npm run all"
+    "build": "truffle migrate --network testnet & npm run all",
+    "fe": "cd UserInterface-UI && npm run dev",
+    "be": "cd KeystoneJS && npm run dev",
+    "p": "concurrently --kill-others \"npm run fe\" \"npm run be\""
   },
   "author": "NguyenTuanQuangSang",
   "license": "ISC",
   "dependencies": {
     "@openzeppelin/contracts": "^4.3.2",
     "@truffle/hdwallet-provider": "^1.4.1",
-    "dotenv": "^10.0.0"
+    "concurrently": "^6.4.0",
+    "dotenv": "^10.0.0",
+    "request-promise": "^4.2.6"
   },
   "devDependencies": {
     "truffle-solc-select": "^0.1.6"

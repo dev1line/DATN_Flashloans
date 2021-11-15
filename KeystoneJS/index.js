@@ -19,6 +19,7 @@ const PropertySchema = require("./schema/Property");
 const CustomerSchema = require("./schema/Customer");
 const BannerSchema = require("./schema/Banner");
 const ContactSchema = require("./schema/Contact");
+const VideoSchema = require("./schema/Video");
 
 const { initialAction } = require("./inital-data");
 
@@ -56,6 +57,7 @@ const listSchema = [
   { name: "Contact", schema: ContactSchema },
   { name: "Banner", schema: BannerSchema },
   { name: "Customer", schema: CustomerSchema },
+  { name: "Video", schema: VideoSchema },
 ];
 
 listSchema.map(({ name, schema }) => keystone.createList(name, schema));

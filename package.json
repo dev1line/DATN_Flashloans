@@ -15,7 +15,7 @@
     "dev:ui":"( cd UserInterface-UI && npm run dev ) & ( cd KeystoneJS && npm run dev ) ",
     "dev:fe":"cd UserInterface-UI && npm run dev",
     "dev:api":"cd KeystoneJS && npm run dev",
-    "all": "npm run dev:fe && npm run dev:api"
+    "all": "npm run dev:fe & npm run dev:api"
   },
   "author": "NguyenTuanQuangSang",
   "license": "ISC",

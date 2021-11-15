@@ -23,8 +23,8 @@ const StockView = (props) => {
       <div>
         <h2>Market Overview</h2>
         <p>
-          The market is very active. Let's learn and research more deeply to
-          make the right investment decisions
+          The market is very active. Let&apos;s learn and research more deeply
+          to make the right investment decisions
         </p>
         <div id="btn-stock-price">Check now !</div>
       </div>

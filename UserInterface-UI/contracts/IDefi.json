@@ -1,0 +1,366 @@
+{
+  "contractName": "IDefi",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "depositBNB",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "withdraw",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.4+commit.c7e474f2\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_amount\",\"type\":\"uint256\"}],\"name\":\"depositBNB\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_amount\",\"type\":\"uint256\"}],\"name\":\"withdraw\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/interfaces/IDefi.sol\":\"IDefi\"},\"evmVersion\":\"byzantium\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/interfaces/IDefi.sol\":{\"keccak256\":\"0xf25dedfd7c2584990b98ae083fb024ba319dce0e6ad8978cd4229b5388eae8dd\",\"license\":\"UNLICENSED\",\"urls\":[\"bzz-raw://64061d587e13bd8ce0ee2ae3ebbcd5e4aed1912ea741ba0de623a49846dc36e9\",\"dweb:/ipfs/QmUvEvYNm1Jkq5boYUEm7x8recmzuMZm6LVTpUQ2UxQPLP\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "// SPDX-License-Identifier: UNLICENSED\npragma solidity >=0.8.4;\n\ninterface IDefi {\n    function depositBNB(uint256 _amount) external payable;\n\n    function withdraw(uint256 _amount) external;\n}\n",
+  "sourcePath": "D:\\Flashloan\\Flashloans\\contracts\\interfaces\\IDefi.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/interfaces/IDefi.sol",
+    "exportedSymbols": {
+      "IDefi": [
+        1012
+      ]
+    },
+    "id": 1013,
+    "license": "UNLICENSED",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1001,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.8",
+          ".4"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "39:24:7"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "id": 1012,
+        "linearizedBaseContracts": [
+          1012
+        ],
+        "name": "IDefi",
+        "nameLocation": "75:5:7",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "functionSelector": "9da90f19",
+            "id": 1006,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "depositBNB",
+            "nameLocation": "96:10:7",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1004,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1003,
+                  "mutability": "mutable",
+                  "name": "_amount",
+                  "nameLocation": "115:7:7",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1006,
+                  "src": "107:15:7",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1002,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "107:7:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "106:17:7"
+            },
+            "returnParameters": {
+              "id": 1005,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "140:0:7"
+            },
+            "scope": 1012,
+            "src": "87:54:7",
+            "stateMutability": "payable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "2e1a7d4d",
+            "id": 1011,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "withdraw",
+            "nameLocation": "156:8:7",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1009,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1008,
+                  "mutability": "mutable",
+                  "name": "_amount",
+                  "nameLocation": "173:7:7",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1011,
+                  "src": "165:15:7",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1007,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "165:7:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "164:17:7"
+            },
+            "returnParameters": {
+              "id": 1010,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "190:0:7"
+            },
+            "scope": 1012,
+            "src": "147:44:7",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 1013,
+        "src": "65:128:7",
+        "usedErrors": []
+      }
+    ],
+    "src": "39:155:7"
+  },
+  "legacyAST": {
+    "absolutePath": "project:/contracts/interfaces/IDefi.sol",
+    "exportedSymbols": {
+      "IDefi": [
+        1012
+      ]
+    },
+    "id": 1013,
+    "license": "UNLICENSED",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1001,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.8",
+          ".4"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "39:24:7"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "id": 1012,
+        "linearizedBaseContracts": [
+          1012
+        ],
+        "name": "IDefi",
+        "nameLocation": "75:5:7",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "functionSelector": "9da90f19",
+            "id": 1006,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "depositBNB",
+            "nameLocation": "96:10:7",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1004,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1003,
+                  "mutability": "mutable",
+                  "name": "_amount",
+                  "nameLocation": "115:7:7",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1006,
+                  "src": "107:15:7",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1002,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "107:7:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "106:17:7"
+            },
+            "returnParameters": {
+              "id": 1005,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "140:0:7"
+            },
+            "scope": 1012,
+            "src": "87:54:7",
+            "stateMutability": "payable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "2e1a7d4d",
+            "id": 1011,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "withdraw",
+            "nameLocation": "156:8:7",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1009,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1008,
+                  "mutability": "mutable",
+                  "name": "_amount",
+                  "nameLocation": "173:7:7",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1011,
+                  "src": "165:15:7",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1007,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "165:7:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "164:17:7"
+            },
+            "returnParameters": {
+              "id": 1010,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "190:0:7"
+            },
+            "scope": 1012,
+            "src": "147:44:7",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 1013,
+        "src": "65:128:7",
+        "usedErrors": []
+      }
+    ],
+    "src": "39:155:7"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.4+commit.c7e474f2.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.3",
+  "updatedAt": "2021-11-15T00:33:38.157Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}

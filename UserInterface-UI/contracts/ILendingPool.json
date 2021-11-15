@@ -1,0 +1,424 @@
+{
+  "contractName": "ILendingPool",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_receiver",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_reserve",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_amount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bytes",
+          "name": "_params",
+          "type": "bytes"
+        }
+      ],
+      "name": "flashLoan",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.4+commit.c7e474f2\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_receiver\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_reserve\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_amount\",\"type\":\"uint256\"},{\"internalType\":\"bytes\",\"name\":\"_params\",\"type\":\"bytes\"}],\"name\":\"flashLoan\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/interfaces/ILendingPool.sol\":\"ILendingPool\"},\"evmVersion\":\"byzantium\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/interfaces/ILendingPool.sol\":{\"keccak256\":\"0x2839f2bc0f6bef4d3c2d94dc0a28c51e3ec0418d1ad5546f8428690c738a56c0\",\"license\":\"UNLICENSED\",\"urls\":[\"bzz-raw://1e3e3877c24bb9d020dcdbc0b447a76c3d4fc7076b6cf83fa503a283883f38b8\",\"dweb:/ipfs/QmRyyAk4PspgU2rv7TE5dq2JrgE9o7LLfNT88qUFujCDbC\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "// SPDX-License-Identifier: UNLICENSED\npragma solidity >=0.8.4;\n\ninterface ILendingPool {\n    function flashLoan(\n        address _receiver,\n        address _reserve,\n        uint256 _amount,\n        bytes calldata _params\n    ) external;\n}\n",
+  "sourcePath": "D:\\Flashloan\\Flashloans\\contracts\\interfaces\\ILendingPool.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/interfaces/ILendingPool.sol",
+    "exportedSymbols": {
+      "ILendingPool": [
+        1041
+      ]
+    },
+    "id": 1042,
+    "license": "UNLICENSED",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1029,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.8",
+          ".4"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "39:24:9"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "id": 1041,
+        "linearizedBaseContracts": [
+          1041
+        ],
+        "name": "ILendingPool",
+        "nameLocation": "75:12:9",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "functionSelector": "5cffe9de",
+            "id": 1040,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "flashLoan",
+            "nameLocation": "103:9:9",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1038,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1031,
+                  "mutability": "mutable",
+                  "name": "_receiver",
+                  "nameLocation": "130:9:9",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1040,
+                  "src": "122:17:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 1030,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "122:7:9",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1033,
+                  "mutability": "mutable",
+                  "name": "_reserve",
+                  "nameLocation": "157:8:9",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1040,
+                  "src": "149:16:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 1032,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "149:7:9",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1035,
+                  "mutability": "mutable",
+                  "name": "_amount",
+                  "nameLocation": "183:7:9",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1040,
+                  "src": "175:15:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1034,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "175:7:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1037,
+                  "mutability": "mutable",
+                  "name": "_params",
+                  "nameLocation": "215:7:9",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1040,
+                  "src": "200:22:9",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_calldata_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 1036,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "200:5:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "112:116:9"
+            },
+            "returnParameters": {
+              "id": 1039,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "237:0:9"
+            },
+            "scope": 1041,
+            "src": "94:144:9",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 1042,
+        "src": "65:175:9",
+        "usedErrors": []
+      }
+    ],
+    "src": "39:202:9"
+  },
+  "legacyAST": {
+    "absolutePath": "project:/contracts/interfaces/ILendingPool.sol",
+    "exportedSymbols": {
+      "ILendingPool": [
+        1041
+      ]
+    },
+    "id": 1042,
+    "license": "UNLICENSED",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1029,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.8",
+          ".4"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "39:24:9"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "id": 1041,
+        "linearizedBaseContracts": [
+          1041
+        ],
+        "name": "ILendingPool",
+        "nameLocation": "75:12:9",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "functionSelector": "5cffe9de",
+            "id": 1040,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "flashLoan",
+            "nameLocation": "103:9:9",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1038,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1031,
+                  "mutability": "mutable",
+                  "name": "_receiver",
+                  "nameLocation": "130:9:9",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1040,
+                  "src": "122:17:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 1030,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "122:7:9",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1033,
+                  "mutability": "mutable",
+                  "name": "_reserve",
+                  "nameLocation": "157:8:9",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1040,
+                  "src": "149:16:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 1032,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "149:7:9",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1035,
+                  "mutability": "mutable",
+                  "name": "_amount",
+                  "nameLocation": "183:7:9",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1040,
+                  "src": "175:15:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1034,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "175:7:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1037,
+                  "mutability": "mutable",
+                  "name": "_params",
+                  "nameLocation": "215:7:9",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1040,
+                  "src": "200:22:9",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_calldata_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 1036,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "200:5:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "112:116:9"
+            },
+            "returnParameters": {
+              "id": 1039,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "237:0:9"
+            },
+            "scope": 1041,
+            "src": "94:144:9",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 1042,
+        "src": "65:175:9",
+        "usedErrors": []
+      }
+    ],
+    "src": "39:202:9"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.4+commit.c7e474f2.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.3",
+  "updatedAt": "2021-11-15T00:33:38.161Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}

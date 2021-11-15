@@ -8,7 +8,7 @@
 # testing
 /coverage
 # contracts 
-/contracts
+#/contracts
 # next.js
 /.next/
 /out/

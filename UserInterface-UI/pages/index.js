@@ -12,17 +12,17 @@ const SwitchButton = (props) => {
   const [isLive, setIsLive] = useState(false);
   return (
     <div>
-      <div class="btn-group" role="group" aria-label="Basic example">
+      <div className="btn-group" role="group" aria-label="Basic example">
         <button
           type="button"
-          class="btn btn-primary"
+          className="btn btn-primary"
           onClick={() => setIsLive(false)}
         >
           Static
         </button>
         <button
           type="button"
-          class="btn btn-primary"
+          className="btn btn-primary"
           onClick={() => setIsLive(true)}
         >
           Live

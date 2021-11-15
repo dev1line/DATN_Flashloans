@@ -1,0 +1,438 @@
+{
+  "contractName": "IFlashLoanReceiver",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_reserve",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_amount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_fee",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bytes",
+          "name": "_params",
+          "type": "bytes"
+        }
+      ],
+      "name": "executeOperation",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.4+commit.c7e474f2\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_reserve\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_amount\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_fee\",\"type\":\"uint256\"},{\"internalType\":\"bytes\",\"name\":\"_params\",\"type\":\"bytes\"}],\"name\":\"executeOperation\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"author\":\"Multiplier Finance\",\"details\":\"implement this interface to develop a flashloan-compatible flashLoanReceiver contract*\",\"kind\":\"dev\",\"methods\":{},\"title\":\"IFlashLoanReceiver interface\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"notice\":\"Interface for the Multiplier fee IFlashLoanReceiver.\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/interfaces/IFlashLoanReceiver.sol\":\"IFlashLoanReceiver\"},\"evmVersion\":\"byzantium\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/interfaces/IFlashLoanReceiver.sol\":{\"keccak256\":\"0x20d7deb4e075e8a9fda4816ba7d900525064de6f6b391e4dbbfab20f1654d654\",\"license\":\"UNLICENSED\",\"urls\":[\"bzz-raw://4dda6dcb3219163d207e29054363f448e72f636e83b3e580b7bfa74008b2bf77\",\"dweb:/ipfs/Qmeotu9eLpfLuVnvuFpLTkW2kDJPGU8RS2uYnqYeAf8ZCG\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "// SPDX-License-Identifier: UNLICENSED\npragma solidity >=0.8.4;\n\n/**\n * @title IFlashLoanReceiver interface\n * @notice Interface for the Multiplier fee IFlashLoanReceiver.\n * @author Multiplier Finance\n * @dev implement this interface to develop a flashloan-compatible\n * flashLoanReceiver contract\n **/\ninterface IFlashLoanReceiver {\n    function executeOperation(\n        address _reserve,\n        uint256 _amount,\n        uint256 _fee,\n        bytes calldata _params\n    ) external;\n}\n",
+  "sourcePath": "D:\\Flashloan\\Flashloans\\contracts\\interfaces\\IFlashLoanReceiver.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/interfaces/IFlashLoanReceiver.sol",
+    "exportedSymbols": {
+      "IFlashLoanReceiver": [
+        1027
+      ]
+    },
+    "id": 1028,
+    "license": "UNLICENSED",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1014,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.8",
+          ".4"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "39:24:8"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": {
+          "id": 1015,
+          "nodeType": "StructuredDocumentation",
+          "src": "65:238:8",
+          "text": " @title IFlashLoanReceiver interface\n @notice Interface for the Multiplier fee IFlashLoanReceiver.\n @author Multiplier Finance\n @dev implement this interface to develop a flashloan-compatible\n flashLoanReceiver contract*"
+        },
+        "fullyImplemented": false,
+        "id": 1027,
+        "linearizedBaseContracts": [
+          1027
+        ],
+        "name": "IFlashLoanReceiver",
+        "nameLocation": "314:18:8",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "functionSelector": "ee872558",
+            "id": 1026,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "executeOperation",
+            "nameLocation": "348:16:8",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1024,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1017,
+                  "mutability": "mutable",
+                  "name": "_reserve",
+                  "nameLocation": "382:8:8",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1026,
+                  "src": "374:16:8",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 1016,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "374:7:8",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1019,
+                  "mutability": "mutable",
+                  "name": "_amount",
+                  "nameLocation": "408:7:8",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1026,
+                  "src": "400:15:8",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1018,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "400:7:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1021,
+                  "mutability": "mutable",
+                  "name": "_fee",
+                  "nameLocation": "433:4:8",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1026,
+                  "src": "425:12:8",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1020,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "425:7:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1023,
+                  "mutability": "mutable",
+                  "name": "_params",
+                  "nameLocation": "462:7:8",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1026,
+                  "src": "447:22:8",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_calldata_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 1022,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "447:5:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "364:111:8"
+            },
+            "returnParameters": {
+              "id": 1025,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "484:0:8"
+            },
+            "scope": 1027,
+            "src": "339:146:8",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 1028,
+        "src": "304:183:8",
+        "usedErrors": []
+      }
+    ],
+    "src": "39:449:8"
+  },
+  "legacyAST": {
+    "absolutePath": "project:/contracts/interfaces/IFlashLoanReceiver.sol",
+    "exportedSymbols": {
+      "IFlashLoanReceiver": [
+        1027
+      ]
+    },
+    "id": 1028,
+    "license": "UNLICENSED",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1014,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.8",
+          ".4"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "39:24:8"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": {
+          "id": 1015,
+          "nodeType": "StructuredDocumentation",
+          "src": "65:238:8",
+          "text": " @title IFlashLoanReceiver interface\n @notice Interface for the Multiplier fee IFlashLoanReceiver.\n @author Multiplier Finance\n @dev implement this interface to develop a flashloan-compatible\n flashLoanReceiver contract*"
+        },
+        "fullyImplemented": false,
+        "id": 1027,
+        "linearizedBaseContracts": [
+          1027
+        ],
+        "name": "IFlashLoanReceiver",
+        "nameLocation": "314:18:8",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "functionSelector": "ee872558",
+            "id": 1026,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "executeOperation",
+            "nameLocation": "348:16:8",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1024,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1017,
+                  "mutability": "mutable",
+                  "name": "_reserve",
+                  "nameLocation": "382:8:8",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1026,
+                  "src": "374:16:8",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 1016,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "374:7:8",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1019,
+                  "mutability": "mutable",
+                  "name": "_amount",
+                  "nameLocation": "408:7:8",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1026,
+                  "src": "400:15:8",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1018,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "400:7:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1021,
+                  "mutability": "mutable",
+                  "name": "_fee",
+                  "nameLocation": "433:4:8",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1026,
+                  "src": "425:12:8",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1020,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "425:7:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1023,
+                  "mutability": "mutable",
+                  "name": "_params",
+                  "nameLocation": "462:7:8",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1026,
+                  "src": "447:22:8",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_calldata_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 1022,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "447:5:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "364:111:8"
+            },
+            "returnParameters": {
+              "id": 1025,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "484:0:8"
+            },
+            "scope": 1027,
+            "src": "339:146:8",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 1028,
+        "src": "304:183:8",
+        "usedErrors": []
+      }
+    ],
+    "src": "39:449:8"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.4+commit.c7e474f2.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.3",
+  "updatedAt": "2021-11-15T00:33:38.158Z",
+  "devdoc": {
+    "author": "Multiplier Finance",
+    "details": "implement this interface to develop a flashloan-compatible flashLoanReceiver contract*",
+    "kind": "dev",
+    "methods": {},
+    "title": "IFlashLoanReceiver interface",
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "notice": "Interface for the Multiplier fee IFlashLoanReceiver.",
+    "version": 1
+  }
+}

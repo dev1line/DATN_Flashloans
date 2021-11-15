@@ -16,7 +16,7 @@ export default function Custom404() {
           href="/css/header.module.css"
         />
       </Head>
-      <h1 contenteditable>
+      <h1>
         4<div className="shine-3"></div>
         <div className="shine-4"></div>
       </h1>

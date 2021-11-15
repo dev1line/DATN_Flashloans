@@ -18,8 +18,8 @@ const Guide = (props) => {
             <div className="box-text-item">
               <h4>Invest mode</h4>
               <p>
-                Explore and Invest in Furucombo's wealth management farms with
-                ease and let us help you make the most of your money
+                Explore and Invest in Furucombo&apos;s wealth management farms
+                with ease and let us help you make the most of your money
               </p>
             </div>
             <div className="box-text-item">

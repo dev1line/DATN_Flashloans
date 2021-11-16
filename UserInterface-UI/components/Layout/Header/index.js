@@ -19,20 +19,20 @@ const Header = (props) => {
       childrenPage: [],
     },
     {
-      url: "/instruction",
-      name: "Instruction",
+      url: "/instructions",
+      name: "Instructions",
       childrenPage: [
         {
-          url: "/instruction/dex",
+          url: "/instructions/dex",
           name: "Decentralize Exchange (DEX)",
         },
         {
-          url: "/instruction/price-stock",
-          name: "Price Stock",
+          url: "/instructions/price-strategy",
+          name: "Price Strategy",
         },
         {
-          url: "/instruction/fee",
-          name: "Fee transaction",
+          url: "/instructions/fee",
+          name: "Fee Transaction",
         },
       ],
     },

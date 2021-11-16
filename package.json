@@ -12,7 +12,6 @@
   "scripts": {
     "start": "truffle migrate --network testnet & concurrently --kill-others \"npm run fe\" \"npm run be\"",
     "testnet": "truffle console --network testnet && compile && migrate --reset",
-    "dev:ui": "( cd UserInterface-UI && npm run dev ) & ( cd KeystoneJS && npm run dev ) ",
     "dev:fe": "cd UserInterface-UI && npm run dev",
     "dev:api": "cd KeystoneJS && npm run dev",
     "all": "npm run dev:fe & npm run dev:api",

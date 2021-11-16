@@ -25,23 +25,8 @@ const Property = {
       type: Text,
       // isRequired: true,
     },
-    keyEN: {
-      type: Text,
-      label: "Key EN",
-      // isRequired: true,
-    },
-    valueEN: {
-      type: Text,
-      label: "Value EN",
-      // isRequired: true,
-    },
     url: {
       type: Text,
-    },
-    flag: {
-      type: Checkbox,
-      isRequired: true,
-      adminDoc: "This Field is defined style full column if you check its",
     },
     image: {
       type: CloudinaryImage,

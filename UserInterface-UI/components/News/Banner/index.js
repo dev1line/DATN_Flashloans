@@ -1,7 +1,6 @@
 import Head from "next/head";
-import { useEffect, useState } from "react";
+
 const Banner = (props) => {
-  useEffect(() => {}, []);
   return (
     <div style={{ width: "100%" }}>
       <Head>
@@ -12,7 +11,7 @@ const Banner = (props) => {
         <div
           className="bg-cover"
           style={{
-            backgroundImage: "none",
+            backgroundImage: `url(${props.data.property[0].image.original})`,
             backgroundColor: "grey",
           }}
         ></div>

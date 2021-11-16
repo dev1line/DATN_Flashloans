@@ -42,7 +42,7 @@ MyApp.getInitialProps = async (ctx) => {
   const navbarData = await client.query({
     query: GET_HEADER,
   });
-  console.log("data:", navbarData);
+  // console.log("data:", navbarData);
   const appData = await App.getInitialProps(ctx);
   return {
     ...appData,

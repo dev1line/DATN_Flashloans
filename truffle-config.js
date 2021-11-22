@@ -6,11 +6,11 @@ const path = require("path");
 module.exports = {
   contracts_build_directory: path.join(__dirname, "UserInterface-UI/contracts"),
   networks: {
-    // development: {
-    //   host: "127.0.0.1", // Localhost (default: none)
-    //   port: 8545, // Standard Ethereum port (default: none)
-    //   network_id: "*", // Any network (default: none)
-    // },
+    development: {
+      host: "127.0.0.1", // Localhost (default: none)
+      port: 8545, // Standard Ethereum port (default: none)
+      network_id: "*", // Any network (default: none)
+    },
     // Another network with more advanced options...
     // advanced: {
     // port: 8777,             // Custom port
@@ -20,19 +20,29 @@ module.exports = {
     // from: <address>,        // Account to send txs from (default: accounts[0])
     // websocket: true        // Enable EventEmitter interface for web3 (default: false)
     // },
-    testnet: {
-      provider: () =>
-        new HDWalletProvider(
-          process.env.MNEMONIC,
-          `https://data-seed-prebsc-1-s1.binance.org:8545`
-        ),
-      network_id: 97,
-      confirmations: 10,
-      timeoutBlocks: 200,
+    kovan: {
+      provider: new HDWalletProvider(
+        process.env.MNEMONIC,
+        "https://kovan.infura.io/v3/" + process.env.PROJECT_ID
+      ),
+      network_id: 42,
+      gas: 5000000,
+      gasPrice: 5000000000, // 5 Gwei
       skipDryRun: true,
-      gas: "1000000",
-      gasPrice: "470000000000",
     },
+    // testnet: {
+    //   provider: () =>
+    //     new HDWalletProvider(
+    //       process.env.MNEMONIC,
+    //       `https://data-seed-prebsc-1-s1.binance.org:8545`
+    //     ),
+    //   network_id: 97,
+    //   confirmations: 10,
+    //   timeoutBlocks: 200,
+    //   skipDryRun: true,
+    //   gas: "1000000",
+    //   gasPrice: "470000000000",
+    // },
     // bsc: {
     //   provider: () =>
     //     new HDWalletProvider(
@@ -69,18 +79,18 @@ module.exports = {
   },
   // Configure your compilers
   compilers: {
-    solc: {
-      version: "0.8.4", // Fetch exact version from solc-bin (default: truffle's version)
-      docker: false, // Use "0.5.1" you've installed locally with docker (default: false)
-      settings: {
-        // See the solidity docs for advice about optimization and evmVersion
-        optimizer: {
-          enabled: false,
-          runs: 200,
-        },
-        evmVersion: "byzantium",
-      },
-    },
+    // solc: {
+    //   version: "0.8.4", // Fetch exact version from solc-bin (default: truffle's version)
+    //   docker: false, // Use "0.5.1" you've installed locally with docker (default: false)
+    //   settings: {
+    //     // See the solidity docs for advice about optimization and evmVersion
+    //     optimizer: {
+    //       enabled: false,
+    //       runs: 200,
+    //     },
+    //     evmVersion: "byzantium",
+    //   },
+    // },
   },
 
   // Truffle DB is currently disabled by default; to enable it, change enabled: false to enabled: true

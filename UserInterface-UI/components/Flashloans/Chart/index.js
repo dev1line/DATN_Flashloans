@@ -22,7 +22,7 @@ const Chart = (props) => {
     )
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         const cdata = data.map((d) => {
           return {
             time: d[0] / 1000,
@@ -37,7 +37,9 @@ const Chart = (props) => {
       .catch((err) => log(err));
   }, []);
   useSocket("KLINE", (data) => {
-    candleSeries.update(data);
+    if (data != null && candleSeries != null) {
+      candleSeries.update(data);
+    }
   });
   // const cmkc = useSocket("COINMARKETCAP", (data) => {
   //   candleSeries.update(data);

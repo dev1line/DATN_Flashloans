@@ -7,11 +7,14 @@ import { DarkModeSwitch } from "react-toggle-dark-mode";
 import ScrollToTop from "../ScrollToTop";
 import { registerSwipeEvent } from "../../../util/windowEvents";
 import { useRouter } from "next/router";
-
+import { ethers } from "ethers";
+import contractDefinition from "../../../contracts/FlashloanMoneyLego.json";
 const Header = (props) => {
   const { bgNoTransparent, data } = props;
   const isLoadingTime = useRef("loading");
   const [isConnect, setIsconnect] = useState(false);
+  const [web3, setWeb3] = useState(null);
+  const [accounts, setAccounts] = useState(null);
   const navbarMenuList = [
     {
       url: "/flashloan",
@@ -78,7 +81,6 @@ const Header = (props) => {
     }
 
     if (darkmode.value) setIsDark(true);
-    // isSnow(darkmode.value);
   }, []);
 
   function wrapToggle() {
@@ -173,6 +175,61 @@ const Header = (props) => {
     };
   });
 
+  const handleConnect = async () => {
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    let signer;
+    const kovan = {
+      name: "kovan",
+      networkID: "42",
+      erc20: {
+        dai: {
+          address: "0xFf795577d9AC8bD7D90Ee22b6C1703490b6512FD",
+        },
+      },
+    };
+    const contractFlashloanMoneyLegoAddress =
+      contractDefinition.networks[kovan.networkID].address;
+    try {
+      // Prompt user for account connections
+      await provider.send("eth_requestAccounts", []);
+      signer = provider.getSigner();
+      console.log("signer", signer);
+    } catch (err) {
+      console.log(err.message);
+    }
+    if (signer && (await signer.getAddress())) {
+      console.log("Connect successfully", signer);
+      console.log(
+        "logger:",
+        contractDefinition.abi,
+        contractFlashloanMoneyLegoAddress
+      );
+      const contractFlashloanMoneyLego = new ethers.Contract(
+        contractFlashloanMoneyLegoAddress,
+        contractDefinition.abi,
+        signer
+      );
+      console.log("aaa:", contractFlashloanMoneyLego);
+
+      const tx = await contractFlashloanMoneyLego.initateFlashLoan(
+        kovan.erc20.dai.address, // We would like to borrow DAI (note override to Kovan address)
+        ethers.utils.parseEther("1000"), // We would like to borrow 1000 DAI (in 18 decimals)
+        { gasLimit: 4000000 }
+      );
+      // Inspect the issued transaction
+      console.log(tx);
+      let receipt = await tx.wait();
+      // Inspect the transaction receipt
+      console.log("receipt", receipt);
+    } else {
+      //handle log fail connect
+      console.log(
+        "logger:",
+
+        contractDefinition.abi
+      );
+    }
+  };
   return (
     <>
       <Head>
@@ -344,10 +401,7 @@ const Header = (props) => {
             ></path>
           </svg>
         </div>
-        <div
-          className="box-btn-connect"
-          onClick={() => setIsconnect(!isConnect)}
-        >
+        <div className="box-btn-connect" onClick={handleConnect}>
           {!isConnect ? (
             <div className="btn-connect">
               <p>Connect Wallet</p>

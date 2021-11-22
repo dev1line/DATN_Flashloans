@@ -1,7 +1,7 @@
 import React from "react";
-import getWeb3 from "./getWeb3";
+// import getWeb3 from "./getWeb3";
 
-import contractDefinition from "../contracts/Demo.json";
+// import contractDefinition from "../contracts/Demo.json";
 
 export default class Web3Container extends React.Component {
   state = { web3: null, accounts: null, contract: null };

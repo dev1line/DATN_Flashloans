@@ -1,15 +1,19 @@
 import { useState, useEffect } from "react";
-import { useRouter } from "next/router";
-import Loader from "../components/Layout/Loader.js";
-// import Dapp from "../components/dapp";
-import Account from "../components/accounts";
 import Banner from "../components/Homepage/Banner/index.js";
 import Guide from "../components/Homepage/Guide/index.js";
 import Chart from "../components/Flashloans/Chart";
 import StockView from "../components/Homepage/StockView/index.js";
-
+import { useDispatch, useSelector } from "react-redux";
 const SwitchButton = (props) => {
   const [isLive, setIsLive] = useState(false);
+  const token = useSelector((state) => state.main.name);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    console.log("isLive", isLive);
+    if (isLive) dispatch({ type: "SET_NAME", payload: "A" });
+    else dispatch({ type: "SET_NAME", payload: "B" });
+  }, [isLive]);
+  console.log(token);
   return (
     <div>
       <div className="btn-group" role="group" aria-label="Basic example">
@@ -27,19 +31,17 @@ const SwitchButton = (props) => {
         >
           Live
         </button>
+        <p>
+          {token}: {isLive ? "1" : "0"}
+        </p>
       </div>
       <div>{isLive ? <Chart /> : <StockView />}</div>
     </div>
   );
 };
-export default function Home({ web3, accounts, contract }) {
-  const router = useRouter();
-  console.log("haha:", web3, accounts, contract);
+function HomePage(props) {
   return (
     <div className="root-container">
-      {/* {/* <Dapp accounts={accounts} contract={contract} web3={web3} /> */}
-      {/* <Account accounts={accounts} contract={contract} web3={web3} /> */}
-      {/* <Loader /> */}
       <Banner />
       <div className="container">
         <Guide />
@@ -48,3 +50,16 @@ export default function Home({ web3, accounts, contract }) {
     </div>
   );
 }
+
+// const mapStateToProps = (state) => ({
+//   userInfo: state.main,
+// });
+
+// const mapDispatchToProps = {
+//   userSignUp,
+//   userSignIn,
+//   signOut,
+//   restore,
+// };
+
+export default HomePage;

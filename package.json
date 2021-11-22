@@ -1,18 +1,14 @@
 {
-  "name": "FlashLoans",
+  "name": "flashloans",
   "version": "1.0.0",
   "description": "",
   "main": "truffle-config.js",
   "directories": {
     "test": "test"
   },
-  "engines": {
-    "node": "10.0.0"
-  },
   "scripts": {
     "start": "truffle migrate --network testnet & concurrently --kill-others \"npm run fe\" \"npm run be\"",
     "testnet": "truffle console --network testnet && compile && migrate --reset",
-    "dev:ui": "( cd UserInterface-UI && npm run dev ) & ( cd KeystoneJS && npm run dev ) ",
     "dev:fe": "cd UserInterface-UI && npm run dev",
     "dev:api": "cd KeystoneJS && npm run dev",
     "all": "npm run dev:fe & npm run dev:api",
@@ -24,10 +20,15 @@
   "author": "NguyenTuanQuangSang",
   "license": "ISC",
   "dependencies": {
-    "@openzeppelin/contracts": "^4.3.2",
-    "@truffle/hdwallet-provider": "^1.4.1",
+    "@openzeppelin/contracts": "^2.5.1",
+    "@studydefi/money-legos": "^2.4.2",
     "concurrently": "^6.4.0",
-    "dotenv": "^10.0.0",
     "request-promise": "^4.2.6"
+  },
+  "devDependencies": {
+    "@truffle/hdwallet-provider": "^1.0.37",
+    "dotenv": "^8.2.0",
+    "ethers": "^5.0.4",
+    "truffle": "^5.1.32"
   }
 }

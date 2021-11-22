@@ -48,12 +48,12 @@ class MyDocument extends Document {
             integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
             crossOrigin="anonymous"
           ></script>
-          <link
+          {/* <link
             rel="stylesheet"
             type="text/css"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.1/css/all.min.css"
-          />
-          <link
+          /> */}
+          {/* <link
             rel="stylesheet"
             type="text/css"
             href="https://fonts.googleapis.com/css?family=Montserrat&amp;display=swap"
@@ -74,18 +74,13 @@ class MyDocument extends Document {
             rel="stylesheet"
             href="https://unicons.iconscout.com/release/v2.1.9/css/unicons.css"
           ></link>
-          <script
-            type="text/javascript"
-            src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-            crossOrigin="anonymous"
-          ></script>
+
           <script
             type="text/javascript"
             src="https://kit.fontawesome.com/c6253efcfe.js"
             crossOrigin="anonymous"
-          ></script>
-          <script
+          ></script> */}
+          {/* <script
             type="text/javascript"
             src="https://www.amcharts.com/lib/3/ammap.js"
           ></script>
@@ -127,16 +122,16 @@ class MyDocument extends Document {
           <script
             type="text/javascript"
             src="https://www.amcharts.com/lib/4/plugins/bullets.js"
-          ></script>
+          ></script> */}
 
-          <script
+          {/* <script
             type="text/javascript"
             src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"
           ></script>
           <script
             type="text/javascript"
             src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.3/gsap.min.js"
-          ></script>
+          ></script> */}
 
           <script
             type="text/javascript"

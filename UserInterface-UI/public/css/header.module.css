@@ -867,7 +867,7 @@
 }
 
 .po-dropdown-open .po-arrow::after {
-  background-image: url(/img/sort-up.svg);
+  /* background-image: url(/img/sort-up.svg); */
   background-position: top;
 }
 
@@ -883,7 +883,7 @@
 
 .po-arrow::after {
   content: " ";
-  background-image: url(/img/sort-down.svg);
+  /* background-image: url(/img/sort-down.svg); */
   background-position: bottom;
   background-repeat: no-repeat;
   background-size: cover;

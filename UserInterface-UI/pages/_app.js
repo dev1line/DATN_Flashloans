@@ -7,6 +7,8 @@ import { ApolloProvider } from "@apollo/client";
 import { client } from "../apolo-client";
 import { GET_HEADER } from "../query/general";
 import App from "next/app";
+import { Provider } from "react-redux";
+import store from "../redux/store.js";
 function MyApp({ Component, pageProps }) {
   const [socket, setSocket] = useState(null);
   useEffect(() => {
@@ -22,17 +24,19 @@ function MyApp({ Component, pageProps }) {
     // <Web3Container
     // renderLoading={() => <div>Loading Dapp Page...</div>}
     // render={({ web3, accounts, contract }) => (
-    <ApolloProvider client={client}>
-      <Layout>
-        <Component
-          // accounts={accounts}
-          // contract={contract}
-          // web3={web3}
-          socket={socket}
-          {...pageProps}
-        />
-      </Layout>
-    </ApolloProvider>
+    <Provider store={store}>
+      <ApolloProvider client={client}>
+        <Layout>
+          <Component
+            // accounts={accounts}
+            // contract={contract}
+            // web3={web3}
+            socket={socket}
+            {...pageProps}
+          />
+        </Layout>
+      </ApolloProvider>
+    </Provider>
     //   )}
     // />
   );
@@ -42,7 +46,7 @@ MyApp.getInitialProps = async (ctx) => {
   const navbarData = await client.query({
     query: GET_HEADER,
   });
-  console.log("data:", navbarData);
+  // console.log("data:", navbarData);
   const appData = await App.getInitialProps(ctx);
   return {
     ...appData,

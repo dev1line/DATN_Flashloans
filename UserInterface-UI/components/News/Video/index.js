@@ -6,7 +6,7 @@ const Video = (props) => {
   const { data } = props;
   const video = useRef();
   const layer = useRef();
-  console.log(data);
+
   function playVideo() {
     setTimeout(() => {
       video.current.parentNode.style.opacity = 1;
@@ -25,28 +25,21 @@ const Video = (props) => {
             className={clsx(styles.video)}
             width="1500"
             height="700"
-            // poster={}
             ref={video}
           >
-            <source
-              src={data["Video_AAVE"].video}
-              type="video/mp4"
-              autostart="false"
-            />
+            <source src={data.video} type="video/mp4" autostart="false" />
           </video>
         </div>
-        <div className={styles["cover-layer"]} ref={layer}>
-          <img src={data["Video_AAVE"].poster?.original}></img>
+        <div className={clsx("container", styles["cover-layer"])} ref={layer}>
+          <img src={data?.poster?.original}></img>
           <div className={styles["layer-background"]}>
             <img src="/img/Video-video-1.svg" className={styles["img1"]}></img>
             <div className={styles["center"]}>
               <div className={styles["button"]} onClick={playVideo}>
                 <img src="/img/Video-video-2.svg"></img>
               </div>
-              <div className={styles["name"]}>{data["Video_AAVE"].title}</div>
-              <div className={styles["position"]}>
-                {data["Video_AAVE"].subTitle}
-              </div>
+              <div className={styles["name"]}>{data.title}</div>
+              <div className={styles["position"]}>{data.subTitle}</div>
             </div>
             <img src="/img/Video-video-3.svg" className={styles["img3"]}></img>
           </div>

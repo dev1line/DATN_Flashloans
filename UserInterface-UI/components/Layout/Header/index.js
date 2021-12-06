@@ -4,17 +4,21 @@ import { useEffect, useRef, useState } from "react";
 import clsx from "clsx";
 import useDarkMode from "use-dark-mode";
 import { DarkModeSwitch } from "react-toggle-dark-mode";
+import { useSelector, useDispatch } from "react-redux";
 import ScrollToTop from "../ScrollToTop";
+import Link from "next/link";
 import { registerSwipeEvent } from "../../../util/windowEvents";
 import { useRouter } from "next/router";
 import { ethers } from "ethers";
+import * as t from "../../../redux/types";
 import contractDefinition from "../../../contracts/FlashloanMoneyLego.json";
 const Header = (props) => {
   const { bgNoTransparent, data } = props;
   const isLoadingTime = useRef("loading");
-  const [isConnect, setIsconnect] = useState(false);
-  const [web3, setWeb3] = useState(null);
-  const [accounts, setAccounts] = useState(null);
+  const signer = useSelector((state) => state.main.signer);
+  const account = useSelector((state) => state.main.account);
+  const contract = useSelector((state) => state.main.contract);
+  console.log("signer, provider redux:", signer, account, contract);
   const navbarMenuList = [
     {
       url: "/flashloan",
@@ -26,15 +30,15 @@ const Header = (props) => {
       name: "Instructions",
       childrenPage: [
         {
-          url: "/instructions/dex",
+          url: "dex",
           name: "Decentralize Exchange (DEX)",
         },
         {
-          url: "/instructions/price-strategy",
+          url: "price-strategy",
           name: "Price Strategy",
         },
         {
-          url: "/instructions/fee",
+          url: "fee",
           name: "Fee Transaction",
         },
       ],
@@ -44,15 +48,15 @@ const Header = (props) => {
       name: "News",
       childrenPage: [
         {
-          url: "/news/aave",
+          url: "aave",
           name: "AAVE protocol",
         },
         {
-          url: "/news/link",
+          url: "link",
           name: "ChainLink protocol",
         },
         {
-          url: "/news/comp",
+          url: "comp",
           name: "Compound protocol",
         },
       ],
@@ -142,9 +146,6 @@ const Header = (props) => {
   }, [navRef]);
 
   useEffect(() => {
-    // $(".btn-connect").click(() => {
-    //   setIsconnect(!isConnect);
-    // });
     function toggleDropdown(e) {
       $(this).toggleClass("po-dropdown-open");
     }
@@ -174,10 +175,10 @@ const Header = (props) => {
       );
     };
   });
-
+  const dispatch = useDispatch();
   const handleConnect = async () => {
     const provider = new ethers.providers.Web3Provider(window.ethereum);
-    let signer;
+    let signer, account;
     const kovan = {
       name: "kovan",
       networkID: "42",
@@ -191,9 +192,9 @@ const Header = (props) => {
       contractDefinition.networks[kovan.networkID].address;
     try {
       // Prompt user for account connections
-      await provider.send("eth_requestAccounts", []);
+      account = await provider.send("eth_requestAccounts", []);
       signer = provider.getSigner();
-      console.log("signer", signer);
+      console.log("account", account);
     } catch (err) {
       console.log(err.message);
     }
@@ -210,26 +211,66 @@ const Header = (props) => {
         signer
       );
       console.log("aaa:", contractFlashloanMoneyLego);
+      // localStorage.setItem("contract", contractFlashloanMoneyLego);
+      dispatch({
+        type: t.LOGIN_METAMASK,
+        payload: {
+          account,
+          contract: contractFlashloanMoneyLego,
+          signer,
+        },
+      });
 
-      const tx = await contractFlashloanMoneyLego.initateFlashLoan(
-        kovan.erc20.dai.address, // We would like to borrow DAI (note override to Kovan address)
-        ethers.utils.parseEther("1000"), // We would like to borrow 1000 DAI (in 18 decimals)
-        { gasLimit: 4000000 }
-      );
-      // Inspect the issued transaction
-      console.log(tx);
-      let receipt = await tx.wait();
-      // Inspect the transaction receipt
-      console.log("receipt", receipt);
+      // if (contractFlashloanMoneyLego) {
+      //   const rs = await contract.getEstimateAmount(
+      //     "0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D",
+      //     // "0x54Ac34e5cE84C501165674782582ADce2FDdc8F4",
+      //     ethers.utils.parseEther("1000"),
+      //     // ["0xFf795577d9AC8bD7D90Ee22b6C1703490b6512FD", "0xe22da380ee6b445bb8273c81944adeb6e8450422"]
+      //     [
+      //       "0x2d12186Fbb9f9a8C28B3FfdD4c42920f8539D738",
+      //       "0xFf795577d9AC8bD7D90Ee22b6C1703490b6512FD",
+      //     ]
+      //   );
+      //   // setValue(ethers.utils.formatEther(rs[1]));
+      //   console.log("rs", ethers.utils.formatEther(rs[1]));
+      // }
+      //   const tx = await contractFlashloanMoneyLego.initateFlashLoan(
+      //     kovan.erc20.dai.address, // We would like to borrow DAI (note override to Kovan address)
+      //     ethers.utils.parseEther("1000"), // We would like to borrow 1000 DAI (in 18 decimals)
+      //     { gasLimit: 4000000 }
+      //   );
+      //   // Inspect the issued transaction
+      //   console.log(tx);
+      //   let receipt = await tx.wait();
+      //   // Inspect the transaction receipt
+      //   console.log("receipt", receipt);
     } else {
       //handle log fail connect
-      console.log(
-        "logger:",
-
-        contractDefinition.abi
-      );
+      console.log("logger:", contractDefinition.abi);
     }
   };
+  // update account, will cause component re-render
+  const accountChangedHandler = (newAccount) => {
+    // update
+    dispatch({
+      type: t.LOGIN_METAMASK,
+      payload: {
+        signer,
+        account: newAccount,
+        contract,
+      },
+    });
+  };
+  const chainChangedHandler = () => {
+    // reload the page to avoid any errors with chain change mid use of application
+    window.location.reload();
+  };
+
+  // listen for account changes
+  // window.ethereum.on("accountsChanged", accountChangedHandler);
+
+  // window.ethereum.on("chainChanged", chainChangedHandler);
   return (
     <>
       <Head>
@@ -248,9 +289,9 @@ const Header = (props) => {
           "navbar navbar-expand-lg navbar-light no-default-spacing home"
         )}
       >
-        <a className="navbar-brand no-default-spacing" href="#">
+        <Link className="navbar-brand no-default-spacing" href="/">
           <img src="/img/logo1.jpg" className="img-navbar-brand" />
-        </a>
+        </Link>
         <div className="collapse navbar-collapse navbar-menu" id="navbarNav">
           <ul className="navbar-nav">
             {navbarMenuList.map((menu, key) => (
@@ -258,8 +299,8 @@ const Header = (props) => {
                 <div className={clsx("dropdown")}>
                   <div className="hover-o">
                     <div className="hover-t">
-                      <a
-                        href={menu?.url}
+                      <Link
+                        href={menu?.url ? menu.url : "/"}
                         className={clsx(
                           "text-navbar-menu",
                           new RegExp(menu.url).test(router.pathname)
@@ -271,9 +312,9 @@ const Header = (props) => {
                         )}
                       >
                         {menu?.name}
-                      </a>
-                      <a
-                        href={menu?.url}
+                      </Link>
+                      <Link
+                        href={menu?.url ? menu.url : "/"}
                         className={clsx(
                           "text-navbar-menu",
                           "text-animation",
@@ -283,7 +324,7 @@ const Header = (props) => {
                         )}
                       >
                         {menu?.name}
-                      </a>
+                      </Link>
                     </div>
                   </div>
                   {menu.childrenPage.length !== 0 && (
@@ -299,7 +340,14 @@ const Header = (props) => {
                           {menu.childrenPage.map((item, index) => (
                             <li key={index}>
                               <div>
-                                <a href={item.url}>{item.name}</a>
+                                <Link
+                                  href={{
+                                    pathname: `${menu.url}/[slug]`,
+                                    query: { slug: item?.url },
+                                  }}
+                                >
+                                  {item.name}
+                                </Link>
                               </div>
                             </li>
                           ))}
@@ -324,9 +372,9 @@ const Header = (props) => {
             <div className="po-container">
               <div className="po-box-logo-container">
                 <div className="po-box-logo">
-                  <a className="po-logo" href="#">
+                  <Link className="po-logo" href="/">
                     <img alt="LOGO" src="/img/logo1.jpg" />
-                  </a>
+                  </Link>
                   <img
                     className="po-close-button toggle-open-popcover-button"
                     src="/img/close.svg"
@@ -358,15 +406,24 @@ const Header = (props) => {
                           item.childrenPage.length > 0 && `po-arrow`
                         }`}
                       >
-                        <a href={item.url}> {item.name}</a>
+                        <Link href={item?.url ? item.url : "/"}>
+                          {item.name}
+                        </Link>
                       </div>
                       <ul className="po-list-dropdown-children">
                         {item.childrenPage.length > 0 &&
                           item.childrenPage.map((subitem, key) => (
                             <li key={key} className="po-list-dropdown-item">
-                              <a className="" href={subitem.url} key={key}>
+                              <Link
+                                className=""
+                                href={{
+                                  pathname: `${item.url}/[slug]`,
+                                  query: { slug: subitem?.url },
+                                }}
+                                key={key}
+                              >
                                 <div className="">{subitem.name}</div>
-                              </a>
+                              </Link>
                             </li>
                           ))}
                       </ul>
@@ -402,7 +459,7 @@ const Header = (props) => {
           </svg>
         </div>
         <div className="box-btn-connect" onClick={handleConnect}>
-          {!isConnect ? (
+          {!account ? (
             <div className="btn-connect">
               <p>Connect Wallet</p>
             </div>
@@ -424,7 +481,7 @@ const Header = (props) => {
                 </svg>
               </div>
               <div className="content-connect">
-                <p>0xadb4</p>
+                <p>{account[0]}</p>
                 <svg
                   viewBox="0 0 24 24"
                   color="text"

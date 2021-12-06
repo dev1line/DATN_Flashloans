@@ -53,7 +53,7 @@ class MyDocument extends Document {
             type="text/css"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.1/css/all.min.css"
           /> */}
-          {/* <link
+          <link
             rel="stylesheet"
             type="text/css"
             href="https://fonts.googleapis.com/css?family=Montserrat&amp;display=swap"
@@ -79,8 +79,8 @@ class MyDocument extends Document {
             type="text/javascript"
             src="https://kit.fontawesome.com/c6253efcfe.js"
             crossOrigin="anonymous"
-          ></script> */}
-          {/* <script
+          ></script>
+          <script
             type="text/javascript"
             src="https://www.amcharts.com/lib/3/ammap.js"
           ></script>
@@ -122,7 +122,7 @@ class MyDocument extends Document {
           <script
             type="text/javascript"
             src="https://www.amcharts.com/lib/4/plugins/bullets.js"
-          ></script> */}
+          ></script>
 
           {/* <script
             type="text/javascript"
@@ -150,6 +150,19 @@ class MyDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap"
             rel="stylesheet"
           />
+
+          <link
+            href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css"
+            rel="stylesheet"
+          />
+          <script
+            type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"
+          ></script>
+          <script
+            type="text/javascript"
+            src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"
+          ></script>
         </Head>
         <body>
           <div id="wrapper">

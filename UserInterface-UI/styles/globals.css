@@ -316,6 +316,7 @@ body.dark-mode th {
   margin-right: 10px;
   align-items: center;
   justify-content: center;
+  margin: 0px 33px;
 }
 
 .text-navbar-menu a {

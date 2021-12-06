@@ -455,7 +455,7 @@
     opacity: 1;
   }
 }
-body {
+.window-cover {
   background: var(--background);
 }
 small {
@@ -496,19 +496,19 @@ html {
 *:after {
   box-sizing: inherit;
 }
-body {
+.window-cover {
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-body .dribbble {
+.window-cover .dribbble {
   position: fixed;
   display: block;
   right: 24px;
   bottom: 24px;
 }
-body .dribbble img {
+.window-cover .dribbble img {
   display: block;
   width: 76px;
 }

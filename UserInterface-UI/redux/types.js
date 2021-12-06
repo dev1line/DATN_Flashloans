@@ -1,10 +1,1 @@
-export const SET_NAME = "SET_NAME";
-export const REGISTER = "REGISTER";
-export const LOADING = "LOADING";
-export const SIGN_OUT = "SIGN_OUT";
-export const ERROR = "ERROR";
-export const GET_TODOS = "GET_TODOS";
-export const UPDATE_TODOS = "UPDATE_TODOS";
-export const CREATE_TODO = "CREATE_TODO";
-export const DELETE_TODO = "DELETE_TODO";
-export const GET_BOOK_DATA = "GET_BOOK_DATA";
+export const LOGIN_METAMASK = "LOGIN_METAMASK";

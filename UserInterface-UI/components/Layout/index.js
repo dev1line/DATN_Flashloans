@@ -14,30 +14,34 @@ const Layout = ({ footerData, navbarData, children, ...props }) => {
   const router = useRouter();
 
   const handleLoading = () => {
-    document.body.style.overflow = "auto";
+    // document.body.style.overflow = "auto";
+    $("#__next").css({ overflow: "auto" });
+    setTimeout(() => {
+      $(".window-cover").css({ display: "none" });
+    }, 1000);
     setLoading(false);
   };
 
   useEffect(() => {
-    if (router.pathname === "/") {
-      document.body.style.overflow = "hidden";
-      demoAsyncCall().then(() => handleLoading());
-    } else {
-      setLoading(false);
-    }
+    // if (router.pathname === "/") {
+    // document.body.style.overflow = "hidden";
+    $("#__next").css({ overflow: "hidden", height: "100vh" });
+    demoAsyncCall().then(() => handleLoading());
+    // } else {
+    //   setLoading(false);
+    // }
   }, []);
 
   return (
     <>
-      {loading && <Loader />}
-      {!loading && (
-        <div>
-          <Header isLoading={loading} />
-          <div>{children}</div>
-          {/* <ScrollToTop /> */}
-          <Footer isLoading={loading} />
-        </div>
-      )}
+      <div className="window-cover">
+        <Loader />
+      </div>
+      {/* {loading && } */}
+      <Header isLoading={loading} />
+      <div>{children}</div>
+      {/* <ScrollToTop /> */}
+      <Footer isLoading={loading} />
     </>
   );
 };

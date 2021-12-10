@@ -11,11 +11,9 @@
     "testnet": "truffle console --network testnet && compile && migrate --reset",
     "dev:fe": "cd UserInterface-UI && npm run dev",
     "dev:api": "cd KeystoneJS && npm run dev",
-    "all": "npm run dev:fe & npm run dev:api",
+    "all": "concurrently --kill-others \"npm run dev:fe\" \"npm run dev:api\"",
     "build": "truffle migrate --network testnet & npm run all",
-    "fe": "cd UserInterface-UI && npm run dev",
-    "be": "cd KeystoneJS && npm run dev",
-    "p": "concurrently --kill-others \"npm run fe\" \"npm run be\""
+    "s": "cross-env NODE_ENV=production node server.js"
   },
   "author": "NguyenTuanQuangSang",
   "license": "ISC",
@@ -25,7 +23,10 @@
     "@uniswap/v2-core": "^1.0.1",
     "@uniswap/v2-periphery": "^1.1.0-beta.0",
     "concurrently": "^6.4.0",
-    "request-promise": "^4.2.6"
+    "request-promise": "^4.2.6",
+    "express": "4.17.1",
+    "express-session": "^1.17.2",
+    "next": "12.0.4"
   },
   "devDependencies": {
     "@truffle/hdwallet-provider": "^1.0.37",

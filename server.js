@@ -1,16 +1,29 @@
-// https://v5.keystonejs.com/guides/custom-server
-
 const express = require("express");
-const { apps, keystone } = require("./DongDu-API");
-const { next } = require("./DongDu/customserver");
+const session = require("express-session");
+const { apps, keystone } = require("./KeystoneJS");
+const next = require("next");
 
 const dev = process.env.NODE_ENV !== "production";
-const port = process.env.PORT;
+const port = process.env.PORT || 3000;
 
-const nextApp = next({ dev, dir: "./DongDu" });
+const nextApp = next({ dev, dir: "./UserInterface-UI" });
 const handle = nextApp.getRequestHandler();
 
 const server = express();
+
+server.set("trust proxy", 1);
+server.use(
+  session({
+    secret: "f7745f4df4394027716de160fb2acd6aac36699576a8be586b75ac09acf6a0df",
+    saveUninitialized: true,
+    resave: false,
+    maxAge: 1000 * 60 * 60 * 24 * 30,
+    cookie: {
+      secure: true,
+      sameSite: "strict",
+    },
+  })
+);
 
 (async () => {
   const { middlewares } = await keystone.prepare({

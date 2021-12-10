@@ -1,12 +1,64 @@
 import { ethers } from "ethers";
+import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useEffect, useRef, useState } from "react";
-import Head from "next/head";
-import Draggable from "react-draggable";
+import ReactDOM from "react-dom";
+import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+
+// fake data generator
+const getItems = (count, offset = 0) =>
+  Array.from({ length: count }, (v, k) => k).map((k) => ({
+    id: `item-${k + offset}-${new Date().getTime()}`,
+    content: `item ${k + offset}`,
+  }));
+
+const reorder = (list, startIndex, endIndex) => {
+  const result = Array.from(list);
+  const [removed] = result.splice(startIndex, 1);
+  result.splice(endIndex, 0, removed);
+
+  return result;
+};
+
+/**
+ * Moves an item from one list to another list.
+ */
+const move = (source, destination, droppableSource, droppableDestination) => {
+  const sourceClone = Array.from(source);
+  const destClone = Array.from(destination);
+  const [removed] = sourceClone.splice(droppableSource.index, 1);
+
+  destClone.splice(droppableDestination.index, 0, removed);
+
+  const result = {};
+  result[droppableSource.droppableId] = sourceClone;
+  result[droppableDestination.droppableId] = destClone;
+
+  return result;
+};
+const grid = 8;
+
+const getItemStyle = (isDragging, draggableStyle) => ({
+  // some basic styles to make the items look a bit nicer
+  userSelect: "none",
+  padding: grid * 2,
+  margin: `0 0 ${grid}px 0`,
+
+  // change background colour if dragging
+  background: isDragging ? "lightgreen" : "grey",
+
+  // styles we need to apply on draggables
+  ...draggableStyle,
+});
+const getListStyle = (isDraggingOver) => ({
+  background: isDraggingOver ? "lightblue" : "lightgrey",
+  padding: grid,
+  width: 250,
+});
+
 const Flashswap = (props) => {
+  const [state, setState] = useState([]);
   const contract = useSelector((state) => state.main.contract);
-  const [value, setValue] = useState(0);
-  const [activeTab, setActiveTab] = useState(1);
+
   const handleFlashloan = async () => {
     console.log("click", contract, value);
     if (contract) {
@@ -26,140 +78,104 @@ const Flashswap = (props) => {
     // const contract = localStorage.getItem("contract");
     // console.log(contract);
   };
+
   useEffect(() => {
-    // jQuery(function ($) {
-    //   var panelList = $("#draggablePanelList");
+    console.log(state);
+  }, [state]);
+  function onDragEnd(result) {
+    const { source, destination } = result;
 
-    //   panelList.sortable({
-    //     // Only make the .panel-heading child elements support dragging.
-    //     // Omit this to make then entire <li>...</li> draggable.
-    //     handle: ".panel-heading",
-    //     update: function () {
-    //       $(".panel", panelList).each(function (index, elem) {
-    //         var $listItem = $(elem),
-    //           newIndex = $listItem.index();
+    // dropped outside the list
+    if (!destination) {
+      return;
+    }
+    const sInd = +source.droppableId;
+    const dInd = +destination.droppableId;
 
-    //         // Persist the new indices.
-    //       });
-    //     },
-    //   });
-    // });
+    if (sInd === dInd) {
+      const items = reorder(state[sInd], source.index, destination.index);
+      const newState = [...state];
+      newState[sInd] = items;
+      setState(newState);
+    } else {
+      const result = move(state[sInd], state[dInd], source, destination);
+      const newState = [...state];
+      newState[sInd] = result[sInd];
+      newState[dInd] = result[dInd];
 
-    jQuery(function ($) {
-      var panelList2 = $("#draggablePanelList2");
+      setState(newState.filter((group) => group.length));
+    }
+  }
 
-      panelList2.sortable({
-        // Only make the .panel-heading child elements support dragging.
-        // Omit this to make then entire <li>...</li> draggable.
-        handle: ".panel-heading",
-        update: function () {
-          $(".panel", panelList2).each(function (index, elem) {
-            var $listItem = $(elem),
-              newIndex = $listItem.index();
-            console.log(index, "to", newIndex);
-            // Persist the new indices.
-          });
-        },
-      });
-    });
-  });
   return (
     <div>
-      <Head>
-        <link
-          key="/css/flashloan.css"
-          rel="stylesheet"
-          href="/css/flashloan.css"
-        />
-        <link
-          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
-          rel="stylesheet"
-          integrity="sha256-7s5uDGW3AHqw6xtJmNNtr+OBRJUlgkNJEo78P4b0yRw= sha512-nNo+yCHEyn0smMxSswnf/OnX6/KwJuZTlNZBjauKhTK0c+zT+q5JOCx0UFhXQ6rJR9jg6Es8gPuD2uZcYDLqSw=="
-          crossorigin="anonymous"
-        />
-        <script
-          src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
-          integrity="sha256-KXn5puMvxCw+dAYznun+drMdG1IFl3agK0p/pqT9KAo= sha512-2e8qq0ETcfWRI4HJBzQiA3UoyFk6tbNyG+qSaIBZLyW9Xf3sWZHN/lxe9fTh1U45DpPf07yj94KsUHHWe4Yk1A=="
-          crossorigin="anonymous"
-        ></script>
-        <script src="https://code.jquery.com/jquery-2.2.0.js"></script>
-        <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-      </Head>
-      <div class="btn-group" role="group" aria-label="Basic example">
-        <button
-          type="button"
-          onClick={() => setActiveTab(0)}
-          class="btn btn-secondary"
-        >
-          UNI V1
-        </button>
-        <button
-          type="button"
-          onClick={() => setActiveTab(1)}
-          class="btn btn-secondary"
-        >
-          UNI V2
-        </button>
-        <button
-          type="button"
-          onClick={() => setActiveTab(2)}
-          class="btn btn-secondary"
-        >
-          UNI V3
-        </button>
-      </div>
-      {activeTab == 0 && (
-        <div>
-          <p>Flashloan with swap Uniswap V1</p>
-          <Draggable>
-            <div className="box">
-              <div className="box-drag">Block 1</div>
-            </div>
-          </Draggable>
-          <Draggable>
-            <div className="box">
-              <div className="box-drag">Block 2</div>
-            </div>
-          </Draggable>
-          <Draggable>
-            <div className="box">
-              <div className="box-drag">Block 3</div>
-            </div>
-          </Draggable>
-          <div className="drag-area"></div>
-        </div>
-      )}
-      {activeTab == 1 && (
-        <div className="div-cov">
-          <div class="container">
-            <div class="row">
-              <div class="col-xs-2">
-                <div id="draggablePanelList2" class="">
-                  <div
-                    class="panel panel-default"
-                    // style={{ transition: "ease-in-out 3s" }}
-                  >
-                    <div class="panel-heading">You cand drag this panel.</div>
-                    <div class="panel-body">Content hedfsre ...</div>
-                  </div>
-                  <div
-                    class="panel panel-danger"
-                    // style={{ transition: "ease-in-out 3s" }}
-                  >
-                    <div class="panel-heading">You canfd drag this panel.</div>
-                    <div class="panel-body">Content hdsfere ...</div>
-                  </div>
+      <button
+        type="button"
+        onClick={() => {
+          const clone = state.slice();
+          clone.push(getItems(1));
+          setState(clone);
+        }}
+      >
+        Add new item
+      </button>
+      <div style={{ display: "flex" }}>
+        <DragDropContext onDragEnd={onDragEnd}>
+          {state.map((el, ind) => (
+            <Droppable key={ind} droppableId={`${ind}`}>
+              {(provided, snapshot) => (
+                <div
+                  ref={provided.innerRef}
+                  style={getListStyle(snapshot.isDraggingOver)}
+                  {...provided.droppableProps}
+                >
+                  {el.map((item, index) => (
+                    <Draggable
+                      key={item.id}
+                      draggableId={item.id}
+                      index={index}
+                    >
+                      {(provided, snapshot) => (
+                        <div
+                          ref={provided.innerRef}
+                          {...provided.draggableProps}
+                          {...provided.dragHandleProps}
+                          style={getItemStyle(
+                            snapshot.isDragging,
+                            provided.draggableProps.style
+                          )}
+                        >
+                          <div
+                            style={{
+                              display: "flex",
+                              justifyContent: "space-around",
+                            }}
+                          >
+                            {item.content}
+                            <button
+                              type="button"
+                              onClick={() => {
+                                const newState = [...state];
+                                newState[ind].splice(index, 1);
+                                setState(
+                                  newState.filter((group) => group.length)
+                                );
+                              }}
+                            >
+                              delete
+                            </button>
+                          </div>
+                        </div>
+                      )}
+                    </Draggable>
+                  ))}
+                  {provided.placeholder}
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-      {activeTab == 2 && (
-        <div>
-          <p>Flashloan with swap Uniswap V3</p>
-        </div>
-      )}
+              )}
+            </Droppable>
+          ))}
+        </DragDropContext>
+      </div>
     </div>
   );
 };

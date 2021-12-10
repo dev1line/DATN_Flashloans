@@ -46,39 +46,36 @@ const main = async () => {
   //       factory: "0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506"
   //     }
   //   ]
+  const aprDAI = await contractFlashloanMoneyLego.approve("0xFf795577d9AC8bD7D90Ee22b6C1703490b6512FD", "0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506",  ethers.utils.parseEther("1000"), { gasLimit: 12500000, }, );
+  const aDai = await aprDAI.wait();
+  const aprBAT = await contractFlashloanMoneyLego.approve("0xd100d3cD2aDA4260009575A976D1E78159e275D2", "0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506",  ethers.utils.parseEther("1000"),  { gasLimit: 12500000, }, );
+  const aBat = await aprBAT.wait();
+  console.log("ADAI:", aDai);
+  console.log("ABAT:", aBat);
+  // const tx = await contractFlashloanMoneyLego.initateFlashLoan(
+  //   [ 0,
+  //     "0xFf795577d9AC8bD7D90Ee22b6C1703490b6512FD",
+  //     ethers.utils.parseEther("1000"),
+  //      [
+  //         [
+  //           "0xFf795577d9AC8bD7D90Ee22b6C1703490b6512FD",   
+  //           "0x2d12186Fbb9f9a8C28B3FfdD4c42920f8539D738",
+  //           ethers.utils.parseEther("1000"),
+  //           "0x54Ac34e5cE84C501165674782582ADce2FDdc8F4",
+  //         ],
+  //         [
+  //           "0x2d12186Fbb9f9a8C28B3FfdD4c42920f8539D738",
+  //           "0xFf795577d9AC8bD7D90Ee22b6C1703490b6512FD",
+  //           ethers.utils.parseEther("1000"),
+  //           "0xECc6C0542710a0EF07966D7d1B10fA38bbb86523"          
+  //         ],
+  //      ]
+  //   ],
+  //   { gasLimit: 12500000, },
+  // );
   const tx = await contractFlashloanMoneyLego.initateFlashLoan(
-    [ 0,
-      "0xFf795577d9AC8bD7D90Ee22b6C1703490b6512FD",
-      ethers.utils.parseEther("1000"),
-       [
-          [
-            // input_data[0].tokenIn, 
-           
-            "0xFf795577d9AC8bD7D90Ee22b6C1703490b6512FD",
-            // input_data[0].tokenOut, 
-            "0x2d12186Fbb9f9a8C28B3FfdD4c42920f8539D738",
-            // "0x2d12186Fbb9f9a8C28B3FfdD4c42920f8539D738",
-            // input_data[0].amountIn, 
-            ethers.utils.parseEther("1000"),
-            // input_data[0].factory
-            "0x54Ac34e5cE84C501165674782582ADce2FDdc8F4",
-            // "0x4045DE595907be2D4DF088d8aE956d498d1f6deA"
-          ],
-          // ["0x2d12186Fbb9f9a8C28B3FfdD4c42920f8539D738","0xFf795577d9AC8bD7D90Ee22b6C1703490b6512FD"]
-          [
-            // input_data[1].tokenIn, 
-            "0x2d12186Fbb9f9a8C28B3FfdD4c42920f8539D738",
-            // input_data[1].tokenOut, 
-            "0xFf795577d9AC8bD7D90Ee22b6C1703490b6512FD",
-            // input_data[1].amountIn, 
-            ethers.utils.parseEther("1000"),
-            // amountOut[1],
-            // input_data[1].factory
-            "0xECc6C0542710a0EF07966D7d1B10fA38bbb86523"
-            // "0x1ff0ecef613Bff4871a0d07b3a22b2BE9125CF37"
-          ],
-       ]
-    ],
+    // ["0xFf795577d9AC8bD7D90Ee22b6C1703490b6512FD",100000000,[["0xFf795577d9AC8bD7D90Ee22b6C1703490b6512FD","0xd100d3cD2aDA4260009575A976D1E78159e275D2",100000000,"0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506",1],["0xd100d3cD2aDA4260009575A976D1E78159e275D2","0xFf795577d9AC8bD7D90Ee22b6C1703490b6512FD",100000000,"0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506",1],["0xFf795577d9AC8bD7D90Ee22b6C1703490b6512FD","0x2d12186Fbb9f9a8C28B3FfdD4c42920f8539D738",100000000,"0x54Ac34e5cE84C501165674782582ADce2FDdc8F4",0 ],["0x2d12186Fbb9f9a8C28B3FfdD4c42920f8539D738","0xFf795577d9AC8bD7D90Ee22b6C1703490b6512FD",100000000,"0xECc6C0542710a0EF07966D7d1B10fA38bbb86523",0]]],
+    ["0xFf795577d9AC8bD7D90Ee22b6C1703490b6512FD",100000000,[["0xFf795577d9AC8bD7D90Ee22b6C1703490b6512FD","0xd100d3cD2aDA4260009575A976D1E78159e275D2",100000000,"0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506",1],["0xd100d3cD2aDA4260009575A976D1E78159e275D2","0xFf795577d9AC8bD7D90Ee22b6C1703490b6512FD",100000000,"0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506",1],["0xFf795577d9AC8bD7D90Ee22b6C1703490b6512FD","0x2d12186Fbb9f9a8C28B3FfdD4c42920f8539D738",100000000,"0x54Ac34e5cE84C501165674782582ADce2FDdc8F4",0 ],["0x2d12186Fbb9f9a8C28B3FfdD4c42920f8539D738","0xFf795577d9AC8bD7D90Ee22b6C1703490b6512FD",100000000,"0xECc6C0542710a0EF07966D7d1B10fA38bbb86523",0]]],
     { gasLimit: 12500000, },
   );
   // Inspect the issued transaction
